@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dovmo2pl6bfso"]
+
+[ext_resource type="Texture2D" uid="uid://cry2o82pre6kv" path="res://Assets/Environment/Untitled.png" id="1_48ufq"]
+
+[node name="main_character" type="Node2D" unique_id=618936146]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1645406361]
+texture = ExtResource("1_48ufq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073013487]
