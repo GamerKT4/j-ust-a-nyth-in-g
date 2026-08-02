@@ -9,7 +9,6 @@ var house_position: Vector2 = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	house_position = house.global_position
-	print(house_position)
 	pass 
 
 
