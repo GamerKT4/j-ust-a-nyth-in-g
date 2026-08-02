@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://o1tgb47x11t5"]
 
+[ext_resource type="Script" uid="uid://cvbthhdl3gv2a" path="res://Scripts/house.gd" id="1_n87ef"]
 [ext_resource type="Texture2D" uid="uid://n753ogkurule" path="res://Assets/Environment/House.png" id="1_okrnj"]
 
 [node name="House" type="Node2D" unique_id=806136155]
 scale = Vector2(2, 2)
+script = ExtResource("1_n87ef")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=494703966]
 scale = Vector2(0.25, 0.25)
@@ -14,3 +16,5 @@ texture = ExtResource("1_okrnj")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=935350160]
 build_mode = 1
 polygon = PackedVector2Array(-30, -18, -30, -20, -29, -23, -26, -27, -21, -30, -18, -30, 17, -30, 23, -28, 26, -25, 29, -22, 29, -19, 30, 17, 29, 22, 26, 27, 21, 30, 17, 31, -18, 31, -23, 29, -27, 26, -30, 22, -31, 17)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

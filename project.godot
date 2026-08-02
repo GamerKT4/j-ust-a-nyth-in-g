@@ -14,6 +14,10 @@ config/name="jUstANythInG"
 run/main_scene="uid://p6n3m8est6up"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
+[global_group]
+
+Enemies="You know, the bad guys, or bugs in this case lol"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
