@@ -1,0 +1,5 @@
+Just some Ideas:
+
+- make a HSlider to adjust bug speed real time when in game (dev mode feature)
+- Make these dev mode feature only accessible after pressing a key certain number of times or a certain ke]
+- make the ability to pause (non dev mode feature)
