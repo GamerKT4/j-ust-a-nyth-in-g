@@ -13,13 +13,6 @@ config_version=5
 config/name="jUstANythInG"
 run/main_scene="uid://p6n3m8est6up"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-<<<<<<< Updated upstream
-=======
-
-[dotnet]
-
-project/assembly_name="jUstANythInG"
->>>>>>> Stashed changes
 
 [global_group]
 
