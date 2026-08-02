@@ -2,8 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://o1tgb47x11t5" path="res://Scenes/house.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://clmjh4dicufxh" path="res://Scenes/basic_bug.tscn" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://cvbthhdl3gv2a" path="res://Scripts/house.gd" id="3_8gbba"]
 
 [node name="Main" type="Node2D" unique_id=357547061]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=110946340]
+position = Vector2(577, 324)
 
 [node name="World" type="Node" parent="." unique_id=949143815]
 
@@ -12,5 +16,6 @@ position = Vector2(135, 376)
 
 [node name="house" parent="World" unique_id=806136155 instance=ExtResource("1_bo1nx")]
 unique_name_in_owner = true
-position = Vector2(578, 324)
+position = Vector2(576, 324)
 scale = Vector2(1, 1)
+script = ExtResource("3_8gbba")
