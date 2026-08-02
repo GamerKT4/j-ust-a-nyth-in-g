@@ -12,7 +12,11 @@ config_version=5
 
 config/name="jUstANythInG"
 run/main_scene="uid://p6n3m8est6up"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[dotnet]
+
+project/assembly_name="jUstANythInG"
 
 [global_group]
 
