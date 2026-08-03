@@ -15,4 +15,4 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	position = position.move_toward(house_position, bug_speed*delta)
-	pass
+	

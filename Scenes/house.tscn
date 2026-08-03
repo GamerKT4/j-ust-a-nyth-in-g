@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://cvbthhdl3gv2a" path="res://Scripts/house.gd" id="1_n87ef"]
 [ext_resource type="Texture2D" uid="uid://n753ogkurule" path="res://Assets/Environment/House.png" id="1_okrnj"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_n87ef"]
+radius = 26.019224
+
 [node name="House" type="Node2D" unique_id=806136155]
 scale = Vector2(2, 2)
 script = ExtResource("1_n87ef")
@@ -13,8 +16,7 @@ texture = ExtResource("1_okrnj")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1277380773]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=935350160]
-build_mode = 1
-polygon = PackedVector2Array(-30, -18, -30, -20, -29, -23, -26, -27, -21, -30, -18, -30, 17, -30, 23, -28, 26, -25, 29, -22, 29, -19, 30, 17, 29, 22, 26, 27, 21, 30, 17, 31, -18, 31, -23, 29, -27, 26, -30, 22, -31, 17)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=468479169]
+shape = SubResource("CircleShape2D_n87ef")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
