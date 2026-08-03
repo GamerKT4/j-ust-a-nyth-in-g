@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var house: Node2D = %house
+@onready var house: Node2D = get_node("/root/Main/World/house")
 
 var house_position: Vector2 = Vector2.ZERO
 @export var bug_speed = 200
