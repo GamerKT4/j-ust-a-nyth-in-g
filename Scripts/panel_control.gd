@@ -1,8 +1,8 @@
-extends Control
+extends Node
 
-func _on_resume_button_pressed() -> void:
-	get_tree().paused = false
-	get_parent().queue_free()
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
+func _input(e):
+	if e is InputEventKey and e.pressed and e.keycode == KEY_ESCAPE:
+		add_child(load("res://Scenes/PauseMenu.tscn").instantiate())

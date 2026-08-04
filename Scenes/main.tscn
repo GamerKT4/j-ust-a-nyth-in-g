@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://clmjh4dicufxh" path="res://Scenes/basic_bug.tscn" id="2_8gbba"]
 
 [node name="Main" type="Node2D" unique_id=357547061]
+process_mode = 3
 script = ExtResource("1_jjvhh")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=110946340]
@@ -31,10 +32,8 @@ offset_top = 29.0
 offset_right = 211.33334
 offset_bottom = 45.0
 scale = Vector2(1.5, 1.5)
-tooltip_text = "Just cause a good dev though so, now you can change the bug's speed!"
+tooltip_text = "Just cause a good dev thought so, now you can change the bug's speed!"
 mouse_filter = 1
 max_value = 1000.0
 step = 10.0
 rounded = true
-
-[connection signal="value_changed" from="HSlider" to="World/basic_bug" method="_on_h_slider_value_changed"]
