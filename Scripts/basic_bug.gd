@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var house: Node2D = get_node("/root/Main/World/house")
+@onready var h_slider: HSlider = get_node("/root/Main/HSlider")
 
 var house_position: Vector2 = Vector2.ZERO
 @export var bug_speed = 200
@@ -15,9 +16,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	position = position.move_toward(house_position, bug_speed*delta)
-	
-
-
-func _on_h_slider_value_changed(value):
-	print(value)
+	bug_speed = h_slider.value
 	
