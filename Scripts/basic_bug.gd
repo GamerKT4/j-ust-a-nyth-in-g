@@ -16,3 +16,8 @@ func _ready() -> void:
 func _physics_process(delta):
 	position = position.move_toward(house_position, bug_speed*delta)
 	
+
+
+func _on_h_slider_value_changed(value):
+	print(value)
+	
