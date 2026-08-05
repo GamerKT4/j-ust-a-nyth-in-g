@@ -1,8 +1,9 @@
-extends Control
+extends CanvasLayer
+
+signal resume_requested
 
 func _on_resume_button_pressed() -> void:
-	get_tree().paused = false
-	get_parent().queue_free()
+	resume_requested.emit()
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

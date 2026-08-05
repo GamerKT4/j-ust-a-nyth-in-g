@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://clmjh4dicufxh" path="res://Scenes/basic_bug.tscn" id="2_8gbba"]
 
 [node name="Main" type="Node2D" unique_id=357547061]
+process_mode = 1
 script = ExtResource("1_jjvhh")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=110946340]
