@@ -1,8 +1,9 @@
-extends Node
+extends CanvasLayer
 
-func _ready():
-	process_mode = Node.PROCESS_MODE_ALWAYS
+signal resume_requested
 
-func _input(e):
-	if e is InputEventKey and e.pressed and e.keycode == KEY_ESCAPE:
-		add_child(load("res://Scenes/PauseMenu.tscn").instantiate())
+func _on_resume_button_pressed() -> void:
+	resume_requested.emit()
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
