@@ -5,6 +5,20 @@
 [ext_resource type="Script" uid="uid://dhbngb5g34w82" path="res://Scripts/main.gd" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://clmjh4dicufxh" path="res://Scenes/basic_bug.tscn" id="2_8gbba"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjvhh"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.48235294)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kry3j"]
+bg_color = Color(0.90588236, 0.29803923, 0.23529412, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [node name="Main" type="Node2D" unique_id=357547061]
 script = ExtResource("1_jjvhh")
 
@@ -24,6 +38,16 @@ unique_name_in_owner = true
 position = Vector2(576, 324)
 scale = Vector2(1, 1)
 
+[node name="ProgressBar" type="ProgressBar" parent="World/house" unique_id=200306027]
+offset_left = -44.0
+offset_top = -60.0
+offset_right = 47.0
+offset_bottom = -33.0
+theme_override_styles/background = SubResource("StyleBoxFlat_jjvhh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kry3j")
+max_value = 500.0
+show_percentage = false
+
 [node name="HSlider" type="HSlider" parent="." unique_id=1357835729]
 z_index = 10
 offset_left = 16.0
@@ -36,3 +60,5 @@ mouse_filter = 1
 max_value = 1000.0
 step = 10.0
 rounded = true
+
+[connection signal="game_over_triggered" from="World/house" to="." method="_on_house_game_over_triggered"]

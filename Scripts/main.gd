@@ -1,10 +1,10 @@
-extends Node
+extends Node2D
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and not has_node("PauseMenu"):
+	if event.is_action_pressed("ui_cancel") and not has_node("PauseMenu") and not has_node("GameOverMenu"):
 		pause_game()
 
 func pause_game() -> void:
@@ -20,11 +20,23 @@ func pause_game() -> void:
 func resume_game() -> void:
 	get_tree().paused = false
 	if has_node("PauseMenu"):
-		get_node("PauseMenu").queue_free()
+		$PauseMenu.queue_free()
 	toggle_children_pause(Node.PROCESS_MODE_INHERIT)
 
-# Freezes or unfreezes every child script and spawner attached to Main
+# This function runs when game over triggers
+func _on_house_game_over_triggered() -> void:
+	game_over()
+
+func game_over() -> void:
+	get_tree().paused = true
+	toggle_children_pause(Node.PROCESS_MODE_DISABLED)
+
+	var menu = load("res://Scenes/GameOverMenu.tscn").instantiate()
+	menu.name = "GameOverMenu"
+	menu.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(menu)
+
 func toggle_children_pause(mode: ProcessMode) -> void:
 	for child in get_children():
-		if child.name != "PauseMenu":
+		if child.name != "PauseMenu" and child.name != "GameOverMenu":
 			child.process_mode = mode
