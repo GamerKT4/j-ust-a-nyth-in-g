@@ -2,7 +2,7 @@ extends Node2D
 
 signal game_over_triggered
 
-var health = 500
+var house_health = Variables.house_health
 var is_game_over = false
 
 func _on_area_2d_body_entered(body) -> void:
@@ -12,9 +12,9 @@ func _on_area_2d_body_entered(body) -> void:
 	if body.is_in_group("Enemies"):
 		body.queue_free()
 
-		health = health - 10
-		$ProgressBar.value = health
+		house_health = house_health - Variables.bug_damage
+		$ProgressBar.value = house_health
 
-		if health <= 0:
+		if house_health <= 0:
 			is_game_over = true
 			game_over_triggered.emit()
