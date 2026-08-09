@@ -1,7 +1,7 @@
 extends Node
 
 # Player & House
-var player_speed: float = 150.0
+var player_speed: float = 250
 var house_health: float = 500.0
 
 # Bug Settings

@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-var direction: Vector2 = Vector2.ZERO
+var last_direction: Vector2 = Vector2.ZERO
 var player_speed = Variables.player_speed
 
 func _process(delta):
-	
+	var direction: Vector2 = Vector2.ZERO
 	#getting direction
 	direction.x = Input.get_axis("move_left", "move_right")
 	direction.y = Input.get_axis("move_up", "move_down")
@@ -12,3 +12,7 @@ func _process(delta):
 	velocity = direction * player_speed
 	
 	move_and_slide()
+	
+	if direction.length() > 0:
+		var last_direction = direction.normalized()
+		rotation = last_direction.angle()

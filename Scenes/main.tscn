@@ -98,7 +98,7 @@ shape = SubResource("WorldBoundaryShape2D_6bp64")
 
 [node name="main_character" parent="." unique_id=1664641800 instance=ExtResource("5_kry3j")]
 z_index = 5
-position = Vector2(430, 316)
+position = Vector2(449, 335.00003)
 scale = Vector2(0.2, 0.2)
 
 [connection signal="game_over_triggered" from="World/house" to="." method="_on_house_game_over_triggered"]
