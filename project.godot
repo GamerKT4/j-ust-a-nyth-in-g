@@ -13,7 +13,6 @@ config_version=5
 config/name="jUstANythInG"
 run/main_scene="uid://p6n3m8est6up"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-boot_splash/image="uid://kajve4xi24w2"
 
 [autoload]
 
