@@ -1,5 +1,8 @@
 Just some Ideas:
 
-- Make these dev mode feature only accessible after pressing a key certain number of times or a certain ke]
-- make the ability to pause (non dev mode feature)
-- Add HSlider to the dev mode only.
+- make the ability to pause (non dev mode feature).
+
+Knows bugs, that are kept in game intentionally by me due to debugging help:-
+(don't remove them)
+
+- Due to a func in main_char.gd, console prints "abcd" whenever bug hits char.

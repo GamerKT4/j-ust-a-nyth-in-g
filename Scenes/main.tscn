@@ -62,7 +62,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_kry3j")
 max_value = 500.0
 show_percentage = false
 
-[node name="HSlider" type="HSlider" parent="." unique_id=1357835729]
+[node name="Bug_speed_slider" type="HSlider" parent="." unique_id=1357835729 groups=["dev_ui"]]
+visible = false
 z_index = 10
 offset_left = 16.0
 offset_top = 29.0

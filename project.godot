@@ -26,6 +26,7 @@ project/assembly_name="jUstANythInG"
 [global_group]
 
 Enemies="You know, the bad guys, or bugs in this case lol"
+dev_ui=""
 
 [input]
 
