@@ -1,8 +1,14 @@
-Just some Ideas:
+##Just some Ideas:
 
 - make the ability to pause (non dev mode feature).
 
-Knows bugs, that are kept in game intentionally by me due to debugging help:-
+##Known bugs, that are kept in game intentionally by me due to debugging help:-
 (don't remove them)
 
 - Due to a func in main_char.gd, console prints "abcd" whenever bug hits char.
+
+##BUGS TO REMOVE:
+- For now, when the gun cooldown ends, the enemies already inside the area 
+  don't get killed.
+- The reload feature is on my list. Will be completed sometimes soon.
+- Generally improve the readability of the gun script.
