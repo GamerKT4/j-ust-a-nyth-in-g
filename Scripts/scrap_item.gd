@@ -3,7 +3,6 @@ extends Area2D
 @export var value: int = 1
 @export var magnet_speed: float = 280.0
 @export var pickup_distance: float = 16.0
-@export var magnet_range: float = 120.0
 
 var player: CharacterBody2D = null
 
@@ -15,11 +14,11 @@ func _physics_process(delta: float) -> void:
 	if not is_instance_valid(player):
 		return
 	
-	var dist = global_position.distance_to(player.global_position)
+	var dist: float = global_position.distance_to(player.global_position)
 	
-	# Fly toward the player when in range
-	if dist < magnet_range:
-		var dir = (player.global_position - global_position).normalized()
+	# Fly toward the player when within the upgraded magnet range
+	if dist < Variables.player_magnet_range:
+		var dir: Vector2 = (player.global_position - global_position).normalized()
 		global_position += dir * magnet_speed * delta
 		
 		# Picked up when touching

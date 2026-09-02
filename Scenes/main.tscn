@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://o1tgb47x11t5" path="res://Scenes/house.tscn" id="1_bo1nx"]
 [ext_resource type="Script" uid="uid://dhbngb5g34w82" path="res://Scripts/main.gd" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dovmo2pl6bfso" path="res://Scenes/main_character.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://ch3sgoninuuuw" path="res://Scenes/ShopMenu.tscn" id="6_6bp64"]
 [ext_resource type="PackedScene" uid="uid://dw77fvk3qd56m" path="res://Scenes/WaveUI.tscn" id="6_21xkr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjvhh"]
@@ -102,5 +103,7 @@ shape = SubResource("WorldBoundaryShape2D_6bp64")
 z_index = 5
 position = Vector2(449, 335.00003)
 scale = Vector2(0.2, 0.2)
+
+[node name="ShopMenu" parent="." unique_id=1720833697 instance=ExtResource("6_6bp64")]
 
 [connection signal="game_over_triggered" from="World/house" to="." method="_on_house_game_over_triggered"]

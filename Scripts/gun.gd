@@ -11,6 +11,13 @@ var enemies_in_range: Array
 func _ready() -> void:
 	gun_is_cool = true
 	cooldown.one_shot = true
+	cooldown.wait_time = Variables.gun_cooldown
+	
+	if Variables.has_signal("upgrades_updated"):
+		Variables.upgrades_updated.connect(_on_upgrades_updated)
+
+func _on_upgrades_updated() -> void:
+	cooldown.wait_time = Variables.gun_cooldown
 
 func _on_cooldown_timeout() -> void:
 	gun_is_cool = true
