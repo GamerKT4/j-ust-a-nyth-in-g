@@ -6,6 +6,7 @@ signal ready_button_pressed
 @onready var wave_label: Label = $VBoxContainer/WaveLabel
 @onready var time_label: Label = $VBoxContainer/TimeLabel
 @onready var ready_button: Button = $ReadyButton
+@onready var scrap_label: Label = $ScrapLabel
 
 func _ready() -> void:
 	if ready_button and not ready_button.pressed.is_connected(_on_ready_button_pressed):
@@ -14,6 +15,9 @@ func _ready() -> void:
 	hide_timer()
 	hide_ready_button()
 	update_wave_text(Variables.current_wave)
+	
+	update_scrap_text(Variables.scrap)
+	Variables.scrap_updated.connect(update_scrap_text)
 
 # --- TEXT UPDATES ---
 func update_wave_text(wave: int) -> void:
@@ -23,6 +27,10 @@ func update_wave_text(wave: int) -> void:
 func update_timer_text(time_left: float) -> void:
 	if time_label:
 		time_label.text = "Next wave in: " + str(int(ceil(time_left))) + "s"
+
+func update_scrap_text(amount: int) -> void:
+	if scrap_label:
+		scrap_label.text = "SCRAP: " + str(amount)
 
 # --- VISIBILITY ---
 func show_timer() -> void:

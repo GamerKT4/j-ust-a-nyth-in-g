@@ -1,5 +1,7 @@
 extends Node2D
 
+const SCRAP_SCENE = preload("res://Scenes/ScrapItem.tscn")
+
 @onready var attack_range: Area2D = $Range
 @onready var cooldown: Timer = $Cooldown
 
@@ -34,6 +36,11 @@ func try_to_shoot():
 	enemies_in_range.sort_custom(sort_by_distance)
 	
 	var closest_enemy = enemies_in_range[0]
+	
+	var scrap_drop = SCRAP_SCENE.instantiate()
+	scrap_drop.global_position = closest_enemy.global_position
+	get_tree().current_scene.add_child(scrap_drop)
+	
 	closest_enemy.queue_free()
 	print("Enemy killed!")
 	

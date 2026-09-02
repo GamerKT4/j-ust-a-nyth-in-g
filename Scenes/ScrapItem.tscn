@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dnu8nva0iu8a"]
+
+[ext_resource type="Script" uid="uid://cq8csexv41sl8" path="res://Scripts/scrap_item.gd" id="1_3dru8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_se530"]
+
+[node name="ScrapItem" type="Area2D" unique_id=1205441726]
+script = ExtResource("1_3dru8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=928945489]
+shape = SubResource("CircleShape2D_se530")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1579148641]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+color = Color(0.95686275, 0.9098039, 0.007843138, 1)

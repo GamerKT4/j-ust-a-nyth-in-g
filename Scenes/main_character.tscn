@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://np5p0go4pxvh" path="res://Scripts/main_character.gd" id="1_11o2n"]
 [ext_resource type="Texture2D" uid="uid://cry2o82pre6kv" path="res://Assets/Environment/Untitled.png" id="1_48ufq"]
 
-[node name="main_character" type="CharacterBody2D" unique_id=1664641800]
+[node name="main_character" type="CharacterBody2D" unique_id=1664641800 groups=["Player"]]
 collision_layer = 0
 collision_mask = 0
 motion_mode = 1
