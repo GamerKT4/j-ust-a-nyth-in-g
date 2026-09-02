@@ -17,7 +17,7 @@ func _on_cooldown_timeout() -> void:
 	try_to_shoot()
 
 func _on_body_entered_in_range(_body: Node2D) -> void:
-	try_to_shoot()
+	call_deferred("try_to_shoot")
 
 func sort_by_distance(a, b):
 	var dist_a = a.global_position.distance_squared_to(global_position)
