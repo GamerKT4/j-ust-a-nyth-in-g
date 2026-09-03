@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d03pxtgfv1fab"]
+
+[ext_resource type="Script" uid="uid://b0o0ya6ddv175" path="res://Scripts/ore.gd" id="1_bb785"]
+[ext_resource type="Texture2D" uid="uid://dqttqf2lj8sq2" path="res://Assets/Environment/gem.webp" id="1_i8ymc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bb785"]
+radius = 28.0
+
+[node name="Ore" type="StaticBody2D" unique_id=2051256030 groups=["Minable"]]
+script = ExtResource("1_bb785")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1056601209]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_i8ymc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=473506172]
+shape = SubResource("CircleShape2D_bb785")
