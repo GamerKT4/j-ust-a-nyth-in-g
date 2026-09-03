@@ -26,30 +26,45 @@ func _on_cooldown_timeout() -> void:
 func _on_body_entered_in_range(_body: Node2D) -> void:
 	call_deferred("try_to_shoot")
 
-func sort_by_distance(a, b):
+func sort_by_distance(a: Node2D, b: Node2D) -> bool:
 	var dist_a = a.global_position.distance_squared_to(global_position)
 	var dist_b = b.global_position.distance_squared_to(global_position)
 	return dist_a < dist_b
 
-func try_to_shoot():
+func try_to_shoot() -> void:
 	if not gun_is_cool:
 		return
 	
 	enemies_in_range = attack_range.get_overlapping_bodies()
-	
 	if enemies_in_range.is_empty():
 		return
 	
 	enemies_in_range.sort_custom(sort_by_distance)
 	
-	var closest_enemy = enemies_in_range[0]
+	# Priority 1: Check for real enemies first
+	for target in enemies_in_range:
+		if is_instance_valid(target) and not target.is_in_group("Minable") and not target.is_in_group("Player"):
+			look_at(target.global_position)
+			
+			var scrap_drop = SCRAP_SCENE.instantiate()
+			scrap_drop.global_position = target.global_position
+			get_tree().current_scene.add_child(scrap_drop)
+			
+			target.queue_free()
+			print("Enemy killed!")
+			
+			cooldown.start()
+			gun_is_cool = false
+			return
 	
-	var scrap_drop = SCRAP_SCENE.instantiate()
-	scrap_drop.global_position = closest_enemy.global_position
-	get_tree().current_scene.add_child(scrap_drop)
-	
-	closest_enemy.queue_free()
-	print("Enemy killed!")
-	
-	cooldown.start()
-	gun_is_cool = false
+	# Priority 2: If no enemies were found, mine the nearest rock
+	for target in enemies_in_range:
+		if is_instance_valid(target) and target.is_in_group("Minable"):
+			look_at(target.global_position)
+			
+			if target.has_method("take_damage"):
+				target.take_damage(1)
+			
+			cooldown.start()
+			gun_is_cool = false
+			return
