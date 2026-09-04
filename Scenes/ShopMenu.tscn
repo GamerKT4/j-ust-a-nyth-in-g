@@ -7,13 +7,18 @@
 shader = ExtResource("2_rak5t")
 shader_parameter/blur_amount = 2.5
 
-[node name="ShopMenu" type="CanvasLayer" unique_id=1720833697 node_paths=PackedStringArray("balance_label", "gun_btn", "speed_btn", "magnet_btn", "close_btn")]
+[node name="ShopMenu" type="CanvasLayer" unique_id=1720833697 node_paths=PackedStringArray("scrap_label", "stone_label", "iron_label", "gun_btn", "speed_btn", "magnet_btn", "pickaxe_btn", "reach_btn", "house_btn", "close_btn")]
 process_mode = 3
 script = ExtResource("1_1ifay")
-balance_label = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BalanceLabel")
-gun_btn = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GunUpgradeButton")
-speed_btn = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/SpeedUpgradeButton")
-magnet_btn = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MagnetUpgradeButton")
+scrap_label = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceBar/ScrapCount")
+stone_label = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceBar/StoneCount")
+iron_label = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceBar/IronCount")
+gun_btn = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_Gun/BuyButton")
+speed_btn = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_Speed/BuyButton")
+magnet_btn = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_Magnet/BuyButton")
+pickaxe_btn = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_Pickaxe/BuyButton")
+reach_btn = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_Reach/BuyButton")
+house_btn = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_House/BuyButton")
 close_btn = NodePath("Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CloseButton")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1465358272]
@@ -54,30 +59,111 @@ text = "— WORKSHOP —"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BalanceLabel" type="Label" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=223622779]
+[node name="ResourceBar" type="HBoxContainer" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1495716029]
 layout_mode = 2
-text = "⚙ SCRAP: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_constants/separation = 20
+
+[node name="ScrapCount" type="Label" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceBar" unique_id=1638445208]
+layout_mode = 2
+text = "Scrap: 0"
+
+[node name="StoneCount" type="Label" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceBar" unique_id=714147363]
+layout_mode = 2
+text = "Stone: 0"
+
+[node name="IronCount" type="Label" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ResourceBar" unique_id=506629768]
+layout_mode = 2
+text = "Iron: 0"
 
 [node name="HSeparator" type="HSeparator" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=636834404]
 layout_mode = 2
 
-[node name="GunUpgradeButton" type="Button" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=228552387]
+[node name="UpgradeGrid" type="GridContainer" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1574269207]
 layout_mode = 2
-text = "Upgrade Gun Rate (Lv. 1) - 10 ⚙"
+columns = 2
 
-[node name="SpeedUpgradeButton" type="Button" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2096474311]
+[node name="UpgradeCard_Pickaxe" type="Panel" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid" unique_id=957944023]
+custom_minimum_size = Vector2(180, 70)
 layout_mode = 2
-text = "Upgrade Move Speed (Lv. 1) - 8 ⚙"
 
-[node name="MagnetUpgradeButton" type="Button" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1810240210]
+[node name="BuyButton" type="Button" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_Pickaxe" unique_id=1948295387]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 3
+
+[node name="UpgradeCard_Speed" type="Panel" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid" unique_id=1875613572]
+custom_minimum_size = Vector2(180, 70)
 layout_mode = 2
-text = "Upgrade Magnet Radius (Lv. 1) - 6 ⚙"
+
+[node name="BuyButton" type="Button" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_Speed" unique_id=520095627]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 3
+
+[node name="UpgradeCard_Reach" type="Panel" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid" unique_id=12060029]
+custom_minimum_size = Vector2(180, 70)
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_Reach" unique_id=1170603581]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 3
+
+[node name="UpgradeCard_Gun" type="Panel" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid" unique_id=993926863]
+custom_minimum_size = Vector2(180, 70)
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_Gun" unique_id=1003394031]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 3
+
+[node name="UpgradeCard_House" type="Panel" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid" unique_id=851440056]
+custom_minimum_size = Vector2(180, 70)
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_House" unique_id=1122838342]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 3
+
+[node name="UpgradeCard_Magnet" type="Panel" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid" unique_id=910946613]
+custom_minimum_size = Vector2(180, 70)
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeGrid/UpgradeCard_Magnet" unique_id=755223922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 3
 
 [node name="HSeparator2" type="HSeparator" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=368006377]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=937193910]
+[node name="CloseButton" type="Button" parent="Background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2145016114]
 layout_mode = 2
-text = "RETURN TO GAME"
+text = "Leave Shop
+"

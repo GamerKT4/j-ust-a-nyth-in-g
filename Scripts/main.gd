@@ -9,7 +9,7 @@ func _input(event: InputEvent) -> void:
 
 func pause_game() -> void:
 	get_tree().paused = true
-	toggle_children_pause(Node.PROCESS_MODE_DISABLED)
+	call_deferred("toggle_children_pause", Node.PROCESS_MODE_DISABLED)
 
 	var menu = load("res://Scenes/PauseMenu.tscn").instantiate()
 	menu.name = "PauseMenu"
@@ -21,7 +21,7 @@ func resume_game() -> void:
 	get_tree().paused = false
 	if has_node("PauseMenu"):
 		$PauseMenu.queue_free()
-	toggle_children_pause(Node.PROCESS_MODE_INHERIT)
+	call_deferred("toggle_children_pause", Node.PROCESS_MODE_INHERIT)
 
 # This function runs when game over triggers
 func _on_house_game_over_triggered() -> void:
@@ -29,7 +29,7 @@ func _on_house_game_over_triggered() -> void:
 
 func game_over() -> void:
 	get_tree().paused = true
-	toggle_children_pause(Node.PROCESS_MODE_DISABLED)
+	call_deferred("toggle_children_pause", Node.PROCESS_MODE_DISABLED)
 
 	var menu = load("res://Scenes/GameOverMenu.tscn").instantiate()
 	menu.name = "GameOverMenu"
