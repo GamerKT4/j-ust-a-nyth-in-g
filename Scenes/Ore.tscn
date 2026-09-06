@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d03pxtgfv1fab"]
 
-[ext_resource type="Script" uid="uid://b0o0ya6ddv175" path="res://Scripts/ore.gd" id="1_bb785"]
+[ext_resource type="Script" path="res://Scripts/ore.gd" id="1_bb785"]
 [ext_resource type="Texture2D" uid="uid://dqttqf2lj8sq2" path="res://Assets/Environment/gem.webp" id="1_i8ymc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bb785"]

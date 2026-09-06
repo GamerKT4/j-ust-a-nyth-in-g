@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dovmo2pl6bfso" path="res://Scenes/main_character.tscn" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://ch3sgoninuuuw" path="res://Scenes/ShopMenu.tscn" id="6_6bp64"]
 [ext_resource type="PackedScene" uid="uid://dw77fvk3qd56m" path="res://Scenes/WaveUI.tscn" id="6_21xkr"]
-[ext_resource type="PackedScene" uid="uid://di2dtdymvp0me" path="res://Scenes/WorldGen.tscn" id="7_6bp64"]
-[ext_resource type="PackedScene" uid="uid://cwrvy25ayfm7w" path="res://Scenes/HUD.tscn" id="8_344ge"]
+[ext_resource type="PackedScene" path="res://Scenes/WorldGen.tscn" id="7_6bp64"]
+[ext_resource type="PackedScene" path="res://Scenes/HUD.tscn" id="8_344ge"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjvhh"]
 bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.48235294)
@@ -110,6 +110,7 @@ scale = Vector2(0.2, 0.2)
 visible = false
 
 [node name="WorldGen" parent="." unique_id=453305798 instance=ExtResource("7_6bp64")]
+world_seed = 71
 
 [node name="HUD" parent="." unique_id=1659513494 instance=ExtResource("8_344ge")]
 

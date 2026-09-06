@@ -4,12 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://n753ogkurule" path="res://Assets/Environment/House.png" id="1_okrnj"]
 [ext_resource type="Texture2D" uid="uid://jvrck1g4ornm" path="res://Assets/Environment/AK 47 [96x48].png" id="3_3jr7h"]
 [ext_resource type="Script" uid="uid://d2qdvafwkdsj3" path="res://Scripts/gun.gd" id="3_iqtyj"]
+[ext_resource type="Script" uid="uid://10ydrpt5ko70" path="res://Scripts/ammo_label.gd" id="5_xi0mm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n87ef"]
 radius = 26.019224
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3jr7h"]
-radius = 131.50856
+[sub_resource type="CircleShape2D" id="CircleShape2D_iqtyj"]
+radius = 130.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqtyj"]
+outline_size = 4
+outline_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
 [node name="House" type="Node2D" unique_id=806136155]
 scale = Vector2(2, 2)
@@ -25,18 +30,19 @@ texture = ExtResource("1_okrnj")
 shape = SubResource("CircleShape2D_n87ef")
 
 [node name="Gun" type="Node2D" parent="." unique_id=1513882865]
+position = Vector2(2, 0)
 script = ExtResource("3_iqtyj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Gun" unique_id=1575357647]
+position = Vector2(1.5, 7)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_3jr7h")
-offset = Vector2(7, 14)
 
 [node name="Range" type="Area2D" parent="Gun" unique_id=1615155143]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gun/Range" unique_id=1898528827]
-shape = SubResource("CircleShape2D_3jr7h")
+shape = SubResource("CircleShape2D_iqtyj")
 debug_color = Color(0.75138354, 0.19930798, 0.99999994, 0.41960785)
 
 [node name="Cooldown" type="Timer" parent="Gun" unique_id=626710634]
@@ -44,7 +50,22 @@ process_callback = 0
 one_shot = true
 
 [node name="Reload" type="Timer" parent="Gun" unique_id=1956145467]
+wait_time = 5.0
+one_shot = true
+
+[node name="Ammo label" type="Label" parent="." unique_id=636432421]
+z_index = 100
+offset_left = -25.5
+offset_top = 28.5
+offset_right = 29.0
+offset_bottom = 51.5
+text = "20/20"
+label_settings = SubResource("LabelSettings_iqtyj")
+horizontal_alignment = 1
+vertical_alignment = 2
+script = ExtResource("5_xi0mm")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Gun/Range" to="Gun" method="_on_body_entered_in_range"]
 [connection signal="timeout" from="Gun/Cooldown" to="Gun" method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Gun/Reload" to="Gun" method="_on_reload_timeout"]

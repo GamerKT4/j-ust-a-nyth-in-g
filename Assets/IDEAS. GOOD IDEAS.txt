@@ -8,7 +8,7 @@
 - Due to a func in main_char.gd, console prints "abcd" whenever bug hits char.
 
 ##BUGS TO REMOVE:
-- For now, when the gun cooldown ends, the enemies already inside the area 
-  don't get killed.
 - The reload feature is on my list. Will be completed sometimes soon.
-- Generally improve the readability of the gun script.
+
+##To do list:
+- make gun flip_h if rotation is btw 90 and 270 degrees.
