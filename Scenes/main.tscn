@@ -111,6 +111,7 @@ scale = Vector2(0.2, 0.2)
 visible = false
 
 [node name="WorldGen" parent="." unique_id=453305798 instance=ExtResource("7_6bp64")]
+world_seed = 71
 stone_texture = ExtResource("8_hptm8")
 iron_texture = ExtResource("8_hptm8")
 iron_color = Color(1, 1, 0.23921569, 1)

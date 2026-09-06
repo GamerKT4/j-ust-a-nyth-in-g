@@ -58,6 +58,7 @@ var player_speed: float = 250.0
 
 var gun_level: int = 1
 var gun_cooldown: float = 1.0
+var gun_ammo_limit: int = 20
 
 var magnet_level: int = 1
 var player_magnet_range: float = 120.0
