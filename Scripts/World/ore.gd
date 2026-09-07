@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const PICKUP_SCENE = preload("res://Scenes/Pickup.tscn")
+const PICKUP_SCENE = preload("res://Scenes/World/pickup.tscn")
 
 @export_enum("stone", "iron", "bedrock") var ore_type: String = "stone"
 @export var max_hp: int = 3

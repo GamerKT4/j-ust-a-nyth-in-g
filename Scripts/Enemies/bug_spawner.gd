@@ -1,6 +1,6 @@
 extends Node
 
-var basic_bug = preload("res://Scenes/basic_bug.tscn")
+var basic_bug = preload("res://Scenes/Enemies/basic_bug.tscn")
 
 @export var wave_ui: Control
 

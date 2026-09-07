@@ -1,6 +1,6 @@
 extends Node2D
 
-const SCRAP_SCENE = preload("res://Scenes/ScrapItem.tscn")
+const SCRAP_SCENE = preload("res://Scenes/World/ScrapItem.tscn")
 
 signal ammo_emptied
 signal ammo_changed

@@ -1,9 +1,15 @@
-[gd_scene format=3 uid="uid://d4ho5d61getmv"]
+[gd_scene format=3 uid="uid://48owv62m4jx1"]
 
-[ext_resource type="Script" uid="uid://cmw4cv7fiyuxx" path="res://Scripts/panel_control.gd" id="1_lj4oq"]
+[ext_resource type="Script" uid="uid://cmw4cv7fiyuxx" path="res://Scripts/UI/panel_control.gd" id="1_lj4oq"]
+[ext_resource type="Shader" uid="uid://217n7piwipni" path="res://Assets/PauseMenu.gdshader" id="2_qwhev"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5w4ur"]
+shader = ExtResource("2_qwhev")
+shader_parameter/blur_amount = 2.5
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1827473231]
 process_mode = 3
+script = ExtResource("1_lj4oq")
 
 [node name="PanelControl" type="Control" parent="." unique_id=1953015623]
 process_mode = 3
@@ -13,9 +19,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lj4oq")
 
 [node name="Background" type="ColorRect" parent="PanelControl" unique_id=1687440269]
+material = SubResource("ShaderMaterial_5w4ur")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,5 +56,5 @@ text = "Resume"
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="PanelControl/MenuContainer/ResumeButton" to="PanelControl" method="_on_resume_button_pressed"]
-[connection signal="pressed" from="PanelControl/MenuContainer/QuitButton" to="PanelControl" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PanelControl/MenuContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelControl/MenuContainer/QuitButton" to="." method="_on_quit_button_pressed"]

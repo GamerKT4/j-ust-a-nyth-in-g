@@ -1,6 +1,6 @@
 extends Node2D
 
-const ORE_SCENE = preload("res://Scenes/Ore.tscn")
+const ORE_SCENE = preload("res://Scenes/World/Ore.tscn")
 
 @export_group("Seed & Randomness")
 @export var use_custom_seed: bool = false

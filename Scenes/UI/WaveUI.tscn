@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dw77fvk3qd56m"]
+[gd_scene format=3 uid="uid://cq2ksrgvfo7t"]
 
-[ext_resource type="Script" uid="uid://002dax3lyswf" path="res://Scripts/wave_ui.gd" id="1_4wcsi"]
+[ext_resource type="Script" uid="uid://002dax3lyswf" path="res://Scripts/UI/wave_ui.gd" id="1_4wcsi"]
 
 [node name="WaveUI" type="Control" unique_id=228194430]
 layout_mode = 3
