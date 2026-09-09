@@ -6,11 +6,11 @@ var house_health: float = 0.0
 var is_game_over: bool = false
 
 func _ready() -> void:
+	add_to_group("House")
 	house_health = Variables.house_health
 	$ProgressBar.max_value = Variables.max_house_health
 	$ProgressBar.value = house_health
 
-	# Listen for house fortification upgrades from the shop
 	if Variables.has_signal("house_health_updated"):
 		Variables.house_health_updated.connect(_on_house_health_updated)
 
