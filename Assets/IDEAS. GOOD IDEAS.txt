@@ -1,14 +1,7 @@
-##Just some Ideas:
-
-- make the ability to pause (non dev mode feature).
-
 ##Known bugs, that are kept in game intentionally by me due to debugging help:-
 (don't remove them)
-
 - Due to a func in main_char.gd, console prints "abcd" whenever bug hits char.
 
-##BUGS TO REMOVE:
-- The reload feature is on my list. Will be completed sometimes soon.
 
 ##To do list:
 - make gun flip_h if rotation is btw 90 and 270 degrees.
