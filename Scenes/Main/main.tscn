@@ -24,17 +24,16 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jjvhh"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hryqi"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kry3j"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_imbg2"]
 normal = Vector2(0, 1)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_21xkr"]
-normal = Vector2(-1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6bp64"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hfg1r"]
 normal = Vector2(1, 0)
-distance = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4e4y2"]
+normal = Vector2(-1, 0)
 
 [node name="Main" type="Node2D" unique_id=357547061]
 script = ExtResource("1_jjvhh")
@@ -44,12 +43,12 @@ position = Vector2(576, 324)
 
 [node name="World" type="Node" parent="." unique_id=949143815]
 
-[node name="Bug spawner" type="Node" parent="World" unique_id=269148129 node_paths=PackedStringArray("wave_ui")]
+[node name="BugSpawner" type="Node" parent="World" unique_id=269148129 node_paths=PackedStringArray("wave_ui")]
 process_mode = 1
 script = ExtResource("1_8gbba")
 wave_ui = NodePath("WaveUI")
 
-[node name="WaveUI" parent="World/Bug spawner" unique_id=228194430 instance=ExtResource("6_21xkr")]
+[node name="WaveUI" parent="World/BugSpawner" unique_id=228194430 instance=ExtResource("6_21xkr")]
 size_flags_vertical = 0
 
 [node name="house" parent="World" unique_id=806136155 instance=ExtResource("1_bo1nx")]
@@ -68,7 +67,25 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_kry3j")
 max_value = 500.0
 show_percentage = false
 
-[node name="Bug_speed_slider" type="HSlider" parent="." unique_id=1357835729 groups=["dev_ui"]]
+[node name="WorldBorders" type="StaticBody2D" parent="." unique_id=2091386549]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorders" unique_id=1984160537]
+position = Vector2(601, 648)
+shape = SubResource("WorldBoundaryShape2D_hryqi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorders" unique_id=1502588557]
+position = Vector2(573, 0)
+shape = SubResource("WorldBoundaryShape2D_imbg2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorders" unique_id=690896633]
+position = Vector2(0, 294)
+shape = SubResource("WorldBoundaryShape2D_hfg1r")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorders" unique_id=516470465]
+position = Vector2(1152, 275)
+shape = SubResource("WorldBoundaryShape2D_4e4y2")
+
+[node name="BugSpeedSlider" type="HSlider" parent="." unique_id=1357835729 groups=["dev_ui"]]
 visible = false
 z_index = 10
 offset_left = 16.0
@@ -82,29 +99,7 @@ max_value = 1000.0
 step = 10.0
 rounded = true
 
-[node name="world_borders" type="Node" parent="." unique_id=1169318878]
-
-[node name="THESE ARE HARDCODED" type="Node" parent="world_borders" unique_id=38891066]
-
-[node name="FOR NOW" type="Node" parent="world_borders" unique_id=1506322277]
-
-[node name="bottom_boundary" type="CollisionShape2D" parent="world_borders" unique_id=1371166572]
-position = Vector2(501, 648)
-shape = SubResource("WorldBoundaryShape2D_jjvhh")
-
-[node name="up_boundary" type="CollisionShape2D" parent="world_borders" unique_id=1136631490]
-position = Vector2(516, 0)
-shape = SubResource("WorldBoundaryShape2D_kry3j")
-
-[node name="right_boundary" type="CollisionShape2D" parent="world_borders" unique_id=1468105161]
-position = Vector2(1152, 309)
-shape = SubResource("WorldBoundaryShape2D_21xkr")
-
-[node name="left_boundary" type="CollisionShape2D" parent="world_borders" unique_id=1670676500]
-position = Vector2(-2, 294)
-shape = SubResource("WorldBoundaryShape2D_6bp64")
-
-[node name="main_character" parent="." unique_id=1664641800 instance=ExtResource("5_kry3j")]
+[node name="MainCharacter" parent="." unique_id=1664641800 instance=ExtResource("5_kry3j")]
 z_index = 5
 position = Vector2(449, 335.00003)
 scale = Vector2(0.2, 0.2)
