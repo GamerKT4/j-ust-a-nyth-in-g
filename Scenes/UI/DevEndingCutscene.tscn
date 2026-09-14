@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://ua1p02nr0ax1"]
+
+[ext_resource type="Script" uid="uid://dfghtod4ps4r4" path="res://Scripts/UI/dev_ending_cutscene.gd" id="1_266t3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ta6pl"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly1wy"]
+bg_color = Color(0.047058824, 0.047058824, 0.047058824, 1)
+
+[node name="DevEndingCutscene" type="CanvasLayer" unique_id=2093965859]
+process_mode = 3
+script = ExtResource("1_266t3")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=843151012]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = -250.0
+offset_right = 430.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=796715283]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleBar" type="PanelContainer" parent="PanelContainer/VBoxContainer" unique_id=1828893589]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ta6pl")
+
+[node name="TitleHBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TitleBar" unique_id=1823930293]
+layout_mode = 2
+
+[node name="icon" type="Label" parent="PanelContainer/VBoxContainer/TitleBar/TitleHBox" unique_id=217574434]
+layout_mode = 2
+text = "c:\\"
+
+[node name="TitleText" type="Label" parent="PanelContainer/VBoxContainer/TitleBar/TitleHBox" unique_id=1283344832]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Administrator: Command Prompt"
+
+[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/TitleBar/TitleHBox" unique_id=841593314]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MinBtn" type="Label" parent="PanelContainer/VBoxContainer/TitleBar/TitleHBox" unique_id=212671821]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "—"
+
+[node name="MaxBtn" type="Label" parent="PanelContainer/VBoxContainer/TitleBar/TitleHBox" unique_id=1843424180]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "▢"
+
+[node name="CloseBtn" type="Label" parent="PanelContainer/VBoxContainer/TitleBar/TitleHBox" unique_id=386354117]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "✕"
+
+[node name="TerminalBox" type="PanelContainer" parent="PanelContainer/VBoxContainer" unique_id=1861826642]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ly1wy")
+
+[node name="Margin" type="MarginContainer" parent="PanelContainer/VBoxContainer/TerminalBox" unique_id=191744167]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Output" type="RichTextLabel" parent="PanelContainer/VBoxContainer/TerminalBox/Margin" unique_id=2126157755]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8, 0.8, 0.8, 1)
+scroll_following = true

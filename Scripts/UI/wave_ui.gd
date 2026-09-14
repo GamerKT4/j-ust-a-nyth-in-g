@@ -11,6 +11,10 @@ func _ready() -> void:
 	if ready_button and not ready_button.pressed.is_connected(_on_ready_button_pressed):
 		ready_button.pressed.connect(_on_ready_button_pressed)
 		
+	# Listen for game win trigger from Variables
+	if Variables.has_signal("game_won_triggered"):
+		Variables.game_won_triggered.connect(_on_game_won)
+
 	hide_timer()
 	hide_ready_button()
 	update_wave_text(Variables.current_wave)
@@ -32,7 +36,6 @@ func update_timer_text(time_left: float) -> void:
 	if time_label:
 		time_label.text = "Next wave in: %ds" % int(ceil(time_left))
 
-# --- VISIBILITY ---
 func show_timer() -> void:
 	if time_label:
 		time_label.visible = true
@@ -49,7 +52,12 @@ func hide_ready_button() -> void:
 	if ready_button:
 		ready_button.visible = false
 
-# --- BUTTON SIGNAL HANDLER ---
 func _on_ready_button_pressed() -> void:
 	hide_ready_button()
 	ready_button_pressed.emit()
+
+func _on_game_won() -> void:
+	hide_timer()
+	hide_ready_button()
+	if wave_label:
+		wave_label.text = "SYSTEM COMPROMISED"

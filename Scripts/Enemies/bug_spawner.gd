@@ -19,6 +19,10 @@ func _ready() -> void:
 			wave_ui.hide_ready_button()
 
 func _physics_process(delta: float) -> void:
+	# Stop updating if game is won
+	if Variables.is_game_won:
+		return
+
 	if is_spawning_phase:
 		run_spawning_phase(delta)
 	else:
@@ -37,6 +41,12 @@ func run_spawning_phase(delta: float) -> void:
 
 func check_wave_cleared() -> void:
 	if get_active_bug_count() <= 0:
+		# Check if the player survived the final wave
+		if Variables.current_wave >= Variables.max_waves:
+			is_spawning_phase = false
+			Variables.trigger_victory()
+			return
+
 		is_spawning_phase = false
 		wave_timer = 0.0
 		if wave_ui:
@@ -76,7 +86,7 @@ func start_next_wave() -> void:
 			wave_ui.hide_ready_button()
 
 func _on_ready_button_pressed() -> void:
-	if not is_spawning_phase:
+	if not is_spawning_phase and not Variables.is_game_won:
 		start_next_wave()
 
 # --- SPAWN MATH ---

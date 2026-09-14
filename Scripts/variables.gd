@@ -5,6 +5,7 @@ signal resource_updated(type: String, new_amount: int)
 signal scrap_updated(new_amount: int)
 signal upgrades_updated
 signal house_health_updated(current_hp: float, max_hp: float)
+signal game_won_triggered
 
 # --- ECONOMY ---
 var inventory: Dictionary = {
@@ -70,8 +71,8 @@ var reach_level: int = 1
 var mining_reach: float = 140.0
 
 var house_reinforce_level: int = 1
-var max_house_health: float = 100.0
-var house_health: float = 100.0
+var max_house_health: float = 15000.0
+var house_health: float = 15000.0
 
 # --- BUG & WAVE SETTINGS ---
 var bug_speed: float = 180.0
@@ -81,8 +82,13 @@ var bug_health: float = 20.0
 var spawn_delay: float = 1.0
 var spawn_margin: float = 60.0
 var current_wave: int = 1
+# Check Of Waves For End
+var max_waves: int = 5
 var bugs_per_wave: int = 5
 var wave_break_time: float = 5.0
+
+var is_game_won: bool = false
+var is_game_over: bool = false
 
 # --- COST HELPERS ---
 func get_gun_cost() -> int:
@@ -157,6 +163,13 @@ func upgrade_house() -> void:
 		house_health_updated.emit(house_health, max_house_health)
 		upgrades_updated.emit()
 
+# --- WIN & VICTORY LOGIC ---
+func trigger_victory() -> void:
+	if is_game_over or is_game_won:
+		return
+	is_game_won = true
+	game_won_triggered.emit()
+
 # --- RUN RESET ---
 func reset_game() -> void:
 	scrap = 0
@@ -191,5 +204,7 @@ func reset_game() -> void:
 	mining_reach = 140.0
 
 	house_reinforce_level = 1
+	is_game_won = false
+	is_game_over = false
 
 	upgrades_updated.emit()

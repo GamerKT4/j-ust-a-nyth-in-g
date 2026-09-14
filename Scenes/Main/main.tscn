@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://di2dtdymvp0me" path="res://Scenes/World/WorldGen.tscn" id="7_6bp64"]
 [ext_resource type="PackedScene" uid="uid://cwrvy25ayfm7w" path="res://Scenes/UI/HUD.tscn" id="8_344ge"]
 [ext_resource type="Texture2D" uid="uid://dqttqf2lj8sq2" path="res://Assets/Environment/gem.webp" id="8_hptm8"]
+[ext_resource type="PackedScene" uid="uid://ua1p02nr0ax1" path="res://Scenes/UI/DevEndingCutscene.tscn" id="10_imbg2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjvhh"]
 bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.48235294)
@@ -120,5 +121,7 @@ iron_texture = ExtResource("8_hptm8")
 iron_color = Color(1, 1, 0.23921569, 1)
 
 [node name="HUD" parent="." unique_id=1659513494 instance=ExtResource("8_344ge")]
+
+[node name="DevEndingCutscene" parent="." unique_id=2093965859 instance=ExtResource("10_imbg2")]
 
 [connection signal="game_over_triggered" from="World/house" to="." method="_on_house_game_over_triggered"]
