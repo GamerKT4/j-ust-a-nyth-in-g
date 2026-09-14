@@ -121,8 +121,10 @@ func is_any_bug_on_screen() -> bool:
 	var vp = get_viewport()
 	if not vp:
 		return false
+	
 	var rect = vp.get_visible_rect()
 	var xform = vp.get_canvas_transform()
+	
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		if is_instance_valid(enemy) and enemy is Node2D and rect.has_point(xform * enemy.global_position):
 			return true

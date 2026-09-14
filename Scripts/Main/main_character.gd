@@ -18,10 +18,6 @@ func _physics_process(_delta: float) -> void:
 		last_direction = direction.normalized()
 		rotation = last_direction.angle()
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemies"):
-		body.queue_free()
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		_try_mine_at_cursor()
