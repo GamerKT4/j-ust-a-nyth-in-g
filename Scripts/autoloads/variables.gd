@@ -83,7 +83,7 @@ var spawn_delay: float = 1.0
 var spawn_margin: float = 60.0
 var current_wave: int = 1
 # Check Of Waves For End
-var max_waves: int = 5
+var max_waves: int = 20
 var bugs_per_wave: int = 5
 var wave_break_time: float = 5.0
 

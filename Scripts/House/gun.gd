@@ -72,7 +72,9 @@ func try_to_shoot() -> void:
 func _execute_shot(target: Node2D) -> void:
 	gun_is_cool = false
 	cooldown.start(Variables.gun_cooldown)
-
+	
+	look_at(target.position)
+	
 	if target.is_in_group("Enemies"):
 		var scrap = SCRAP_SCENE.instantiate()
 		scrap.global_position = target.global_position

@@ -6,9 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cckhik1cvr2n" path="res://Scenes/House/gun.tscn" id="3_n67ul"]
 [ext_resource type="Script" uid="uid://10ydrpt5ko70" path="res://Scripts/UI/ammo_label.gd" id="5_xi0mm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_n87ef"]
-radius = 26.019224
-
 [sub_resource type="LabelSettings" id="LabelSettings_iqtyj"]
 outline_size = 4
 outline_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
@@ -22,9 +19,11 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_okrnj")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1277380773]
+collision_layer = 8
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=468479169]
-shape = SubResource("CircleShape2D_n87ef")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1861591816]
+polygon = PackedVector2Array(-17, -31.5, 17.5, -31.5, 21.5, -31, 26, -28, 30, -23, 31.5, -18.5, 31.5, 17.5, 29.5, 24, 25.5, 28.5, 19.5, 31.5, -18, 31.5, -25, 29, -29.5, 24, -31.5, 18, -31.5, -17.5, -29.5, -24, -25.5, -28.5, -21, -31)
 
 [node name="Gun" parent="." unique_id=1112238162 instance=ExtResource("3_n67ul")]
 position = Vector2(2, 0)
@@ -45,5 +44,11 @@ label_settings = SubResource("LabelSettings_iqtyj")
 horizontal_alignment = 1
 vertical_alignment = 2
 script = ExtResource("5_xi0mm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=112890676]
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1749276480]
+polygon = PackedVector2Array(-17, -31.5, 17.5, -31.5, 21.5, -31, 26, -28, 30, -23, 31.5, -18.5, 31.5, 17.5, 29.5, 24, 25.5, 28.5, 19.5, 31.5, -18, 31.5, -25, 29, -29.5, 24, -31.5, 18, -31.5, -17.5, -29.5, -24, -25.5, -28.5, -21, -31)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

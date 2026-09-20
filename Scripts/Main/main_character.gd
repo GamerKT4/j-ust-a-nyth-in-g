@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@onready var raycasts: Node2D = $Raycasts
+const UPGRADE_MENU = preload("uid://bfcuot1vbvflw")
+
 var last_direction: Vector2 = Vector2.DOWN
 
 func _ready() -> void:
@@ -17,6 +20,16 @@ func _physics_process(_delta: float) -> void:
 	if direction.length() > 0:
 		last_direction = direction.normalized()
 		rotation = last_direction.angle()
+	
+	var colliding = false
+	var rays: Array = raycasts.get_children()
+	for ray in rays:
+		if ray.is_colliding() and Input.is_action_just_pressed("space") and colliding == false:
+			colliding = true
+			print("Welcome to the shop")
+			var upgrade_menu = UPGRADE_MENU.instantiate()
+			get_parent().add_child(upgrade_menu)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
