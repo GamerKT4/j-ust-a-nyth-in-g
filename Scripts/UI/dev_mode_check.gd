@@ -12,13 +12,17 @@ func _process(_delta: float) -> void:
 
 func _toggle_dev_mode() -> void:
 	is_in_dev_mode = !is_in_dev_mode
+	 
+	var dev_ui = get_tree().get_nodes_in_group("dev_ui")
 	
-	var dev_ui = get_tree().get_first_node_in_group("dev_ui")
-	if dev_ui:
-		dev_ui.visible = is_in_dev_mode
-		print("Dev mode: ", "ON" if is_in_dev_mode else "OFF")
+	if is_in_dev_mode:
+		print("Dev mode: ON")
+		for node in dev_ui:
+			node.visible = true
 	else:
-		print("Dev UI node not found in group 'dev_ui'!")
+		print("Dev mode: OFF")
+		for node in dev_ui:
+			node.visible = false
 
 # Call this on restart if you want dev mode reset
 func reset_dev_mode() -> void:

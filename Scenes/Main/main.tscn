@@ -87,20 +87,6 @@ shape = SubResource("WorldBoundaryShape2D_hfg1r")
 position = Vector2(1152, 275)
 shape = SubResource("WorldBoundaryShape2D_4e4y2")
 
-[node name="BugSpeedSlider" type="HSlider" parent="." unique_id=1357835729 groups=["dev_ui"]]
-visible = false
-z_index = 10
-offset_left = 16.0
-offset_top = 29.0
-offset_right = 211.33334
-offset_bottom = 45.0
-scale = Vector2(1.5, 1.5)
-tooltip_text = "Just cause a good dev thought so, now you can change the bug's speed!"
-mouse_filter = 1
-max_value = 1000.0
-step = 10.0
-rounded = true
-
 [node name="MainCharacter" parent="." unique_id=1664641800 instance=ExtResource("5_kry3j")]
 z_index = 5
 position = Vector2(449, 335.00003)
