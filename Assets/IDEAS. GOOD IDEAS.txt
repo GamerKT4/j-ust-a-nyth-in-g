@@ -5,3 +5,7 @@
 
 ##To do list:
 - make gun flip_h if rotation is btw 90 and 270 degrees.
+
+
+##Bugs:
+- Whenever a tower is placed, the main gun and the new tower ie all gun scripts stop working.

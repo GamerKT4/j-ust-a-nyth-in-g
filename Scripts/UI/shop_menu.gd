@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var towers: Node2D = %Towers
+
 # --- WALLET LABELS ---
 @export var scrap_label: Label
 @export var stone_label: Label
@@ -12,6 +14,7 @@ extends CanvasLayer
 @export var pickaxe_btn: Button
 @export var reach_btn: Button
 @export var house_btn: Button
+@export var tower_btn: Button
 
 # --- CONTROLS ---
 @export var close_btn: Button
@@ -37,6 +40,8 @@ func _ready() -> void:
 		reach_btn.pressed.connect(Variables.upgrade_reach)
 	if house_btn and not house_btn.pressed.is_connected(Variables.upgrade_house):
 		house_btn.pressed.connect(Variables.upgrade_house)
+	if tower_btn and not tower_btn.pressed.is_connected(towers.on_tower_purchased):
+		tower_btn.pressed.connect(towers.on_tower_purchased)
 
 	# React to Resource & Upgrade Updates
 	if Variables.has_signal("resource_updated"):

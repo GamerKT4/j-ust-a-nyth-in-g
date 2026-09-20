@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cckhik1cvr2n"]
+
+[ext_resource type="Script" uid="uid://d2qdvafwkdsj3" path="res://Scripts/House/gun.gd" id="1_00b3k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iqtyj"]
+radius = 130.0
+
+[node name="Gun" type="Node2D" unique_id=1112238162]
+script = ExtResource("1_00b3k")
+
+[node name="Range" type="Area2D" parent="." unique_id=1102646953]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=112290377]
+shape = SubResource("CircleShape2D_iqtyj")
+debug_color = Color(0.75138354, 0.19930798, 0.99999994, 0.41960785)
+
+[node name="Cooldown" type="Timer" parent="." unique_id=131447382]
+process_callback = 0
+one_shot = true
+
+[node name="Reload" type="Timer" parent="." unique_id=1009326588]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="Range" to="." method="_on_body_entered_in_range"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Reload" to="." method="_on_reload_timeout"]

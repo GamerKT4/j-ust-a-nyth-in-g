@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bgkc2c3kwvu26"]
+
+[ext_resource type="Texture2D" uid="uid://jkcg71vwdirb" path="res://Assets/Towers/MachineGunTower.png" id="1_ebt7f"]
+[ext_resource type="PackedScene" uid="uid://cckhik1cvr2n" path="res://Scenes/House/gun.tscn" id="1_onujg"]
+[ext_resource type="Texture2D" uid="uid://de6wsssx3hgtf" path="res://Assets/Towers/Untitled.png" id="2_q10tl"]
+
+[node name="MachineGunTower" type="Node2D" unique_id=360612464]
+
+[node name="Gun" parent="." unique_id=1112238162 instance=ExtResource("1_onujg")]
+
+[node name="Gun" type="Sprite2D" parent="Gun" unique_id=2126962999]
+position = Vector2(5, 3)
+texture = ExtResource("1_ebt7f")
+
+[node name="Base" type="Sprite2D" parent="." unique_id=964874148]
+z_index = -10
+position = Vector2(3, -2)
+texture = ExtResource("2_q10tl")

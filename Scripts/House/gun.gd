@@ -35,7 +35,7 @@ func _ready() -> void:
 	
 	reload.one_shot = true
 	reload.wait_time = reload_time
-	if not reload.timeout.is_connected(_on_reload_timeout):
+	if reload.timeout and not reload.timeout.is_connected(_on_reload_timeout):
 		reload.timeout.connect(_on_reload_timeout)
 	
 	if Variables.has_signal("upgrades_updated"):
@@ -49,12 +49,11 @@ func _on_upgrades_updated() -> void:
 	cooldown.wait_time = Variables.gun_cooldown
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	threat_timer = calm_delay if is_any_bug_on_screen() else maxf(0.0, threat_timer - delta)
 	
 	if gun_is_cool and ammo > 0 and not is_reloading:
 		try_to_shoot()
-
 
 func try_to_shoot() -> void:
 	var bodies = attack_range.get_overlapping_bodies()
