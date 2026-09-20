@@ -8,4 +8,5 @@
 
 
 ##Bugs:
-- Whenever a tower is placed, the main gun and the new tower ie all gun scripts stop working.
+- If shop is opened once again and another tower is bought, while we have another tower
+ bought but not placed, then the tower we bought before disappears.
